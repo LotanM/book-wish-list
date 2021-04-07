@@ -1,2 +1,6 @@
-@import './cmps/item-preview.scss';
-@import './cmps/wish-list.scss';
+@import "./basic/base";
+
+// COMPONENTS
+// @import "./cmps/BookPreview.scss";
+@import './cmps/wish-list';
+@import './cmps/item-preview';

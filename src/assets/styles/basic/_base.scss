@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    line-height: 1.6;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    color: #4d4d4d;
+}
+
+h1 {
+    font-size: rem(50px);
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+a:active {
+    color: black;
+}
+a:visited {
+    color: inherit;
+}
+
+img {
+    width: 100%;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+input {
+    outline: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px #dddddd solid;
+    &:focus{
+        border: 1px #818181 solid;  
+    } 
+}
