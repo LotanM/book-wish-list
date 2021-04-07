@@ -1,13 +1,18 @@
-import axios from "axios";
-
+// import axios from "axios";
+import { storageService } from './storage.service.js'
 export const BookService = {
     query,
 }
-
+const BOOKS_KEY = 'books'
 
 
 function query() {
-    return gbooks;
+    const books = storageService.load(BOOKS_KEY)
+    console.log('books', books)
+    if (!books) {
+        storageService.store(BOOKS_KEY, gbooks)
+        return gbooks;
+    } else return books
 }
 
 
