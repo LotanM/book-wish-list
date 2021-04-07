@@ -15,7 +15,7 @@ export class WishList extends Component {
     }
 
     async componentDidUpdate(prevProps) {
-        if (!(this.props.sortBy == prevProps.sortBy)) {
+        if (!(this.props.sortBy === prevProps.sortBy)) {
             this.loadWishList();
         }
     }
