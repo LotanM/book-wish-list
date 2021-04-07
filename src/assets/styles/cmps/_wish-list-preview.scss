@@ -1,15 +1,22 @@
-.wish-list-preview{
+.wish-list-preview {
     display: flex;
     justify-content: space-between;
     align-content: center;
-    // max-width: 20%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     margin-bottom: 10px;
-    padding: 5px 10px;
-    background-color: white; 
-    box-shadow: 1px 1px 2px 1px rgba(136,136,136,0.3);
-    button{
-        max-height: 21px;
+    padding: 20px;
+    background-color: white;
+    border-left: 10px solid #e09200;
+    box-shadow: 1px 1px 2px 1px rgba(136, 136, 136, 0.3);
+    button {
         align-self: center;
+        background-color: #e09200;
+        padding: 10px;
+        font-size: 10px;
+        color: white;
+        font-weight: bold;
     }
 }
 

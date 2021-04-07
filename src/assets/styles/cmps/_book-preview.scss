@@ -6,28 +6,34 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding-bottom: 12px;
         border-bottom: 1px solid rgb(150, 150, 150);
-        h2 {
-            margin-bottom: 15px;
-        }
     }
     .main {
-        margin: 15px 0;
+        margin: 12px 0;
+        h2 {
+            margin-bottom: 5px;
+            font-weight: lighter;
+            color: rgb(32, 151, 135);
+        }
     }
     .book-container {
+        width: 100%;
         padding: 30px;
         background-color: white;
-        width: 100%;
     }
     button {
-        background-color: transparent;
         padding: 10px;
         font-size: 30px;
+        background-color: transparent;
         &:hover {
-            color: rgb(133, 140, 231);
+            color: #e09200;
+        }
+        &:focus {
+            outline: none;
         }
     }
     // .footer {
-        
+
     // }
 }

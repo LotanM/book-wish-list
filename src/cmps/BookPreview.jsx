@@ -43,6 +43,9 @@ export class BookPreview extends Component {
                         <input type="checkbox" onChange={(ev) => this.onAddToWishList(books[idx], ev.target.checked)} />
                     </div>
                     <div className="main">
+                        <h2>
+                            {books[idx].author}
+                        </h2>
                         {books[idx].description}
                     </div>
                     <div className="footer">
