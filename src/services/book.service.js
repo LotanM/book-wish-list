@@ -1,10 +1,35 @@
 // import axios from "axios";
 import { storageService } from './storage.service.js'
+import utilService from '../services/utils.service.js'
 export const BookService = {
     query,
+    getWishList,
+    removeItem
 }
 const BOOKS_KEY = 'books'
+const WISH_LIST_KEY = 'wishlist'
 
+function getWishList() {
+    const wishlist = storageService.load(WISH_LIST_KEY)
+    console.log('wishlist', wishlist)
+    if (!wishlist || !wishlist.length) {
+        storageService.store(WISH_LIST_KEY, gWishList)
+        return gWishList
+    }
+    else return wishlist
+}
+function removeItem(itemIdx){
+    console.log('itemIdx at service', itemIdx)
+    const wishlist = storageService.load(WISH_LIST_KEY)
+    wishlist.splice(itemIdx, 1)
+    storageService.store(WISH_LIST_KEY, wishlist)
+}
+
+function addToWishList(item) {
+    const wishlist = storageService.load(WISH_LIST_KEY)
+    wishlist.push(item)
+    storageService.store(WISH_LIST_KEY, wishlist)
+}
 
 function query() {
     const books = storageService.load(BOOKS_KEY)
@@ -15,11 +40,16 @@ function query() {
     } else return books
 }
 
-
-
-
-
-
+const gWishList = [
+    {
+        '_id': utilService.makeId(),
+        "title": "Sea of Death"
+    },
+    {
+        '_id': utilService.makeId(),
+        "title": "The Day Lasts More than a Hundred Years"
+    }
+]
 const gbooks = [
     {
         "title": "Sea of Death",

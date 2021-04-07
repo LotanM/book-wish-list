@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import { BookService } from './services/book.service'
+import {WishList} from './cmps/WishList'
+import './assets/styles/styles.scss'
 
 export class App extends Component {
   state = {
@@ -14,7 +16,7 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        
+        <WishList />
       </div>
     )
   }
