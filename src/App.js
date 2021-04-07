@@ -1,6 +1,9 @@
 import { Component } from 'react';
+import { BookService } from './services/book.service'
+import {WishList} from './cmps/WishList'
+import './assets/styles/styles.scss'
+
 import { BookPreview } from './cmps/BookPreview';
-import { BookService } from './services/book.service';
 // import '../src/assets/styles.scss'
 export class App extends Component {
   state = {
@@ -17,6 +20,7 @@ export class App extends Component {
     if(!books) return <div>loading...</div>
     return (
       <div className="App">
+        <WishList />
         <BookPreview books={books}/>
       </div>
     )
