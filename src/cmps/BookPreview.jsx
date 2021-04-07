@@ -30,16 +30,22 @@ export class BookPreview extends Component {
 
     render() {
         const { idx } = this.state
-        const {books} = this.props
+        const { books } = this.props
         // if (!books) return <div>loading...</div>
         return (
             <div key={idx} className="book-preview">
-                {books[idx].title}
+                <button onClick={this.prevBook}> ↫ </button>
+                <div className="book-container">
+                    <div className="header">
+                        {books[idx].title}
+                        <input type="checkbox" onChange={(ev) => this.onAddToWishList(books[idx], ev.target.checked)} />
+                    </div>
+                    <div className="main">
+                        {books[idx].description}
+                    </div>
+                </div>
 
-                <input type="checkbox" onChange={(ev) => this.onAddToWishList(books[idx], ev.target.checked)} />
-
-                <button onClick={this.nextBook}> next </button>
-                <button onClick={this.prevBook}> back </button>
+                <button onClick={this.nextBook}> ↬ </button>
 
             </div>
 
