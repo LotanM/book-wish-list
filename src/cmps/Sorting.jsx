@@ -20,7 +20,7 @@ export class Sorting extends Component {
             <section className="sorting">
                 <button name="title" className={(sortBy.by === 'title') ? 'chosen' : ''} onClick={this.onSetSort}>Title</button>
                 <button name="price" className={(sortBy.by === 'price') ? 'chosen' : ''} onClick={this.onSetSort}>Price</button>
-                <button name="rate" className={(sortBy.by === 'rate') ? 'chosen' : ''} onClick={this.onSetSort}>Rating</button>
+                <button name="rating" className={(sortBy.by === 'rating') ? 'chosen' : ''} onClick={this.onSetSort}>Rating</button>
             </section>
         )
     }
