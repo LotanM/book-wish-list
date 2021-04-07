@@ -1,7 +1,11 @@
 import { Component } from 'react';
 import { BookService } from './services/book.service'
 import { Sorting } from './cmps/Sorting'
+import {WishList} from './cmps/WishList'
+import './assets/styles/styles.scss'
 
+import { BookPreview } from './cmps/BookPreview';
+// import '../src/assets/styles.scss'
 export class App extends Component {
   state = {
     books: null,
@@ -23,9 +27,13 @@ export class App extends Component {
   }
 
   render() {
+    const {books} = this.state
+    if(!books) return <div>loading...</div>
     return (
       <div className="App">
         <Sorting onChangeSort={this.onChangeSort} />
+        <WishList />
+        <BookPreview books={books}/>
       </div>
     )
   }
