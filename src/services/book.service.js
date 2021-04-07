@@ -9,16 +9,17 @@ export const BookService = {
 const BOOKS_KEY = 'books'
 const WISH_LIST_KEY = 'wishlist'
 
-function getWishList() {
+function getWishList(sortBy) {
+    console.log(sortBy);
     const wishlist = storageService.load(WISH_LIST_KEY)
     console.log('wishlist', wishlist)
     if (!wishlist || !wishlist.length) {
         storageService.store(WISH_LIST_KEY, gWishList)
-        return gWishList
+        return sortBooks(gWishList, sortBy);
     }
-    else return wishlist
+    else return sortBooks(wishlist, sortBy);
 }
-function removeItem(itemIdx){
+function removeItem(itemIdx) {
     console.log('itemIdx at service', itemIdx)
     const wishlist = storageService.load(WISH_LIST_KEY)
     wishlist.splice(itemIdx, 1)
@@ -31,21 +32,20 @@ function addToWishList(item) {
     storageService.store(WISH_LIST_KEY, wishlist)
 }
 
-function query(sortBy = '') {
+function query() {
     const books = storageService.load(BOOKS_KEY)
     console.log('books', books)
     if (!books) {
         storageService.store(BOOKS_KEY, gbooks)
         return gbooks;
-    } else return books
+    } else return books;
 }
 
 function sortBooks(books, sortBy) {
+    if (!sortBy.by || sortBy.by === '') return books;
     const sortedBooks = books.sort((a, b) => {
-        return a[sortBy.by] - b[sortBy.by];
+        return (a[sortBy.by] > b[sortBy.by]) ? 1 : -1;
     });
-
-
     return sortedBooks;
 }
 
@@ -57,11 +57,11 @@ function sortBooks(books, sortBy) {
 const gWishList = [
     {
         '_id': utilService.makeId(),
-        "title": "Sea of Death"
+        "title": "The Day Lasts More than a Hundred Years"
     },
     {
         '_id': utilService.makeId(),
-        "title": "The Day Lasts More than a Hundred Years"
+        "title": "Sea of Death"
     }
 ]
 const gbooks = [

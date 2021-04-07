@@ -1,10 +1,10 @@
 import { Component } from 'react';
-import '../assets/styles/styles.scss'
+// import '../assets/styles/styles.scss'
 
 export class Sorting extends Component {
 
     state = {
-        sortBy: { by: null, dir: null }
+        sortBy: { by: '', dir: null }
     }
 
     onSetSort = ({ target }) => {
@@ -17,7 +17,7 @@ export class Sorting extends Component {
     render() {
         const { sortBy } = this.state
         return (
-            <section>
+            <section className="sorting">
                 <button name="title" className={(sortBy.by === 'title') ? 'chosen' : ''} onClick={this.onSetSort}>Title</button>
                 <button name="price" className={(sortBy.by === 'price') ? 'chosen' : ''} onClick={this.onSetSort}>Price</button>
                 <button name="rate" className={(sortBy.by === 'rate') ? 'chosen' : ''} onClick={this.onSetSort}>Rating</button>

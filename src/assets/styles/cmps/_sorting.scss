@@ -1,0 +1,21 @@
+.sorting{
+    .chosen {
+        background-color: rgb(86,141,138);
+        color: white;
+        &::after{
+            content: ' ˅';
+        }
+    }
+    button{
+        width:80px;
+        height: 50px;
+        border: 0;
+        color: rgb(86,141,138);
+        box-shadow: 1px 1px 2px 1px rgba(136,136,136,0.5);
+    }
+    button:focus{
+        border: none;
+        outline: none;
+    }
+    
+}
