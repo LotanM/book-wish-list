@@ -4,7 +4,8 @@ import utilService from '../services/utils.service.js'
 export const BookService = {
     query,
     getWishList,
-    removeItem
+    removeBook,
+    addToWishList
 }
 const BOOKS_KEY = 'books'
 const WISH_LIST_KEY = 'wishlist'
@@ -18,16 +19,18 @@ function getWishList() {
     }
     else return wishlist
 }
-function removeItem(itemIdx){
-    console.log('itemIdx at service', itemIdx)
+
+function removeBook(bookIdx) {
+    console.log('itemIdx at service', bookIdx)
     const wishlist = storageService.load(WISH_LIST_KEY)
-    wishlist.splice(itemIdx, 1)
+    wishlist.splice(bookIdx, 1)
     storageService.store(WISH_LIST_KEY, wishlist)
 }
 
-function addToWishList(item) {
+function addToWishList(book) {
+    book._id = utilService.makeId()
     const wishlist = storageService.load(WISH_LIST_KEY)
-    wishlist.push(item)
+    wishlist.push(book)
     storageService.store(WISH_LIST_KEY, wishlist)
 }
 
