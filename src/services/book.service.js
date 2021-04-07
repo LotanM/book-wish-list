@@ -31,7 +31,7 @@ function addToWishList(item) {
     storageService.store(WISH_LIST_KEY, wishlist)
 }
 
-function query() {
+function query(sortBy = '') {
     const books = storageService.load(BOOKS_KEY)
     console.log('books', books)
     if (!books) {
@@ -39,6 +39,20 @@ function query() {
         return gbooks;
     } else return books
 }
+
+function sortBooks(books, sortBy) {
+    const sortedBooks = books.sort((a, b) => {
+        return a[sortBy.by] - b[sortBy.by];
+    });
+
+
+    return sortedBooks;
+}
+
+
+
+
+
 
 const gWishList = [
     {
