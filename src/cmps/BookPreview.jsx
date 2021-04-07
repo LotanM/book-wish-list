@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import { eventBusService } from '../services/eventBusService.js'
 
 export class BookPreview extends Component {
 
@@ -21,19 +22,21 @@ export class BookPreview extends Component {
         this.setState({ idx: this.state.idx - 1 })
     }
 
-    addToWishList = ({ book }) => {
-        // console.log(target);
-        // this.setState({})
+    onAddToWishList = (book, isChecked) => {
+        console.log('isChecked', isChecked)
+        eventBusService.emit('onAddToWishList', { book, isChecked })
+        console.log('hi')
     }
 
     render() {
         const { idx } = this.state
+        const {books} = this.props
         // if (!books) return <div>loading...</div>
         return (
             <div key={idx} className="book-preview">
-                {this.props.books[idx].title}
+                {books[idx].title}
 
-                <input type="checkbox" onChange={() => this.addToWishList(this.props.books[idx])} />
+                <input type="checkbox" onChange={(ev) => this.onAddToWishList(books[idx], ev.target.checked)} />
 
                 <button onClick={this.nextBook}> next </button>
                 <button onClick={this.prevBook}> back </button>
