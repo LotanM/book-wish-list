@@ -31,6 +31,15 @@ export class WishList extends Component {
         await BookService.removeBook(idx)
         this.loadWishList()
     }
+    totalPrice=()=>{
+        console.log('hi')
+        var totalPrice = 0;
+        this.state.wishlist.forEach(book=>{
+            totalPrice += +book.price
+        })
+        console.log('totalPrice', totalPrice)
+        return totalPrice
+    }
 
     onAddToWishList= async(book, isChecked)=>{
         console.log('isChecked', isChecked)
@@ -47,6 +56,7 @@ export class WishList extends Component {
                 {
                 this.state.wishlist && this.state.wishlist.map(book => <WishListPreview key={book._id} book={book} removeBook={this.removeBook} />)
                 }
+                {this.state.wishlist &&<h2>Total Price: ${this.totalPrice()}</h2>}
             </div>
         )
     }
