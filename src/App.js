@@ -30,9 +30,11 @@ export class App extends Component {
     if (!books) return <div>loading...</div>
     return (
       <div className="App">
-        <Sorting onChangeSort={this.onChangeSort} />
-        <WishList sortBy={sortBy} />
         <BookPreview books={books} />
+        <section className="wish-list-sorting">
+          <Sorting onChangeSort={this.onChangeSort} />
+          <WishList sortBy={sortBy} />
+        </section>
       </div>
     )
   }
