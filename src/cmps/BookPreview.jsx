@@ -37,11 +37,21 @@ export class BookPreview extends Component {
                 <button onClick={this.prevBook}> ↫ </button>
                 <div className="book-container">
                     <div className="header">
-                        {books[idx].title}
+                        <h2>
+                            {books[idx].title}
+                        </h2>
                         <input type="checkbox" onChange={(ev) => this.onAddToWishList(books[idx], ev.target.checked)} />
                     </div>
                     <div className="main">
                         {books[idx].description}
+                    </div>
+                    <div className="footer">
+                        <p>
+                            Rating:  {books[idx].rating}
+                        </p>
+                        <p>
+                            Price:  {books[idx].price}
+                        </p>
                     </div>
                 </div>
 
