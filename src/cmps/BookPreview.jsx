@@ -3,12 +3,23 @@ import { Component } from 'react'
 export class BookPreview extends Component {
 
     state = {
+        idx: 0,
     }
 
     async componentDidMount() {
     }
 
+    nextBook = () => {
+        var idx = this.state.idx;
+        if (idx >= this.props.books.length - 1) return
+        this.setState({ idx: idx + 1 })
+    }
 
+    prevBook = () => {
+        var idx = this.state.idx;
+        if (idx <= 0) return
+        this.setState({ idx: this.state.idx - 1 })
+    }
 
     addToWishList = ({ book }) => {
         // console.log(target);
@@ -16,18 +27,17 @@ export class BookPreview extends Component {
     }
 
     render() {
+        const { idx } = this.state
+        // if (!books) return <div>loading...</div>
         return (
-            <div className="book-preview">
-                {
-                    this.props.books.map((book, idx) =>
-                        <div key={idx}>
+            <div key={idx} className="book-preview">
+                {this.props.books[idx].title}
 
-                            {book.title}
+                <input type="checkbox" onChange={() => this.addToWishList(this.props.books[idx])} />
 
-                            <input type="checkbox" onChange={() => this.addToWishList(book)} />
+                <button onClick={this.nextBook}> next </button>
+                <button onClick={this.prevBook}> back </button>
 
-                        </div>)
-                }
             </div>
 
         )
